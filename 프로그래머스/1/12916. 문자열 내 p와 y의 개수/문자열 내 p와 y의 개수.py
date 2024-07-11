@@ -7,7 +7,5 @@ def solution(s):
             cnt_p += 1
         elif s[i] == 'y':
             cnt_y += 1
-    if cnt_p == cnt_y:
-        return True
-    else:
-        return False
+    return cnt_p == cnt_y
+    
