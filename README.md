@@ -2,6 +2,32 @@
 This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
 
 ----
+# 코딩테스트에서 많이 쓰이는 표현
+
+```python
+import sys
+input = sys.stdin.readline
+```
+
+```python
+from itertools import permutations, combinations, product, combinations_with_replacement # 완전 탐색
+```
+
+```python
+from collections import Counter, deque # 해시, 큐
+```
+
+```python
+import heapq # 우선 순위 큐
+```
+
+```python
+from bisect import bisect_left, bisect_right # 정렬된 배열에서 특정한 원소
+```
+
+
+
+# 알고리즘 이론
 ## 01. Stack
 > 📦 **Stack** 스택 |
 가장 최근에 추가한 요소만 제거할 수 있는 선형 자료구조
