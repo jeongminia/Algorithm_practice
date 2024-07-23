@@ -1,3 +1,5 @@
+This is an auto push repository for Baekjoon Online Judge created with BaekjoonHub.
+----
 ## 01. Stack
 > 📦 **Stack** 스택 |
 가장 최근에 추가한 요소만 제거할 수 있는 선형 자료구조
