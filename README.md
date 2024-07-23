@@ -16,7 +16,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 - `a_string[::-1]`
 - `‘’.join(reversed(’a string’))`
 
-# 02. Queue
+## 02. Queue
 > 📦 **Queue** 큐 |
 뒤에서부터 요소를 추가하고 앞에서부터 요소를 꺼내는 선형 자료 구조
 > 
