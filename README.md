@@ -43,6 +43,8 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 > 
 > - 키 : 고유해야 하므로 테이블에 중복된 키 저장 불가
 
+`from collections import Counter`
+
 ## 04. 완전 탐색 
 > 🌐 **완전 탐색**
 > 
