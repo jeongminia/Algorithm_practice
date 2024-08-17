@@ -108,6 +108,19 @@ from bisect import bisect_left, bisect_right # 정렬된 배열에서 특정한 
 #### 재귀함수
 
 - 자기 자신을 호출하며 모든 가능한 경우를 체크하면서 최적의 해답하는 방법
+  - 최소공약수 구하는 예제
+      ```python
+      def gcd(a, b):
+        if a % b == 0:
+            return b
+        else:
+            return gcd(b, a%b) # b와 a를 b로 나눈 나머지를 반환
+      ```
+  - 최대공배수 구하는 예제
+    ```python
+    def lcm(a, b):
+	    return (a*b) // gcd(a, b)
+    ```
 
 #### 너비우선탐색(BFS), 깊이우선탐색(DFS)
 
