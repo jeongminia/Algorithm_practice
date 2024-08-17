@@ -25,7 +25,10 @@ import heapq # 우선 순위 큐
 from bisect import bisect_left, bisect_right # 정렬된 배열에서 특정한 원소
 ```
 
-
+```python
+# 리스트 원소 내의 곱
+from math import prod
+```
 
 # 알고리즘 이론
 ## 01. Stack
