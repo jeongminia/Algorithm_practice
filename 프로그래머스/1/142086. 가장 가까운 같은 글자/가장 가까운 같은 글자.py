@@ -5,7 +5,6 @@ def solution(s):
     answer = []
     
     q = deque([(priority, idx) for idx, priority in enumerate([s[i] for i in range(len(s))])])
-    print(q)
     
     while q:
         k = q.popleft()
@@ -13,11 +12,7 @@ def solution(s):
         if k[0] not in set(answer_str):
             answer.append(-1)
         else:
-           # print(answer_str)
-            x = k[1] - max(list(filter(lambda x: answer_str[x] == k[0], range(len(answer_str)))))
-      #      
-   #         print(x)
-            answer.append(x)
+            answer.append(k[1] - max(list(filter(lambda x: answer_str[x] == k[0], range(len(answer_str))))))
         
         answer_str.append(k[0])
 
