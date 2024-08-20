@@ -30,6 +30,12 @@ from math import prod, factorial # 리스트 원소 내의 곱
 from math import gcd # 최대공약수 gcd
 ```
 
+```python
+from functools import reduce
+```
+
+\n
+
 # 알고리즘 이론
 ## 01. Stack
 > 📦 **Stack** 스택
