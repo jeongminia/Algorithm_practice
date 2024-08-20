@@ -26,8 +26,8 @@ from bisect import bisect_left, bisect_right # 정렬된 배열에서 특정한 
 ```
 
 ```python
-# 리스트 원소 내의 곱
-from math import prod
+from math import prod # 리스트 원소 내의 곱
+from math # 최대공약수 gcd
 ```
 
 # 알고리즘 이론
