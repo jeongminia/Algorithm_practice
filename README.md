@@ -34,7 +34,6 @@ from math import gcd # 최대공약수 gcd
 from functools import reduce
 ```
 
-\n
 
 # 알고리즘 이론
 ## 01. Stack
