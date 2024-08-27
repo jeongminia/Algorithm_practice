@@ -60,6 +60,7 @@ from functools import reduce
 > 
 > - **FIFO 선입선출 자료구조 :** 가장 먼저 추가한 요소부터 제거하는 자료구조
 >
+Queue를 구현할 때는 Stack과 달리 덱을 활용해 구현해야 시간 복잡도가 터지지 않음
 - `queue.LifoQueue()` 후입선출(가장 마지막에 추가된 요소 제거)
 - `PriorityQueue()`  우선 순위를 부여해 우선순위가 높은 요소 먼저 제거
     - 우선순위는 숫자가 작을수록 높음
