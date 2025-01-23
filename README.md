@@ -1,6 +1,10 @@
 
 This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
 
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=ajm1016)](https://solved.ac/ajm1016/) 
+
+
+
 ----
 # 코딩테스트에서 많이 쓰이는 표현
 
