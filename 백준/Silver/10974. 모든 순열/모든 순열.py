@@ -1,0 +1,8 @@
+from itertools import permutations
+
+N = int(input()) 
+
+lst = [str(i) for i in range(1,N+1)]
+
+for i in permutations(lst):
+      print(" ".join(i))
