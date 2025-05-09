@@ -13,9 +13,5 @@ for idx, student in enumerate(students):
 sorted_students = sorted(student_dict.items(), key=lambda x: x[1])
 
 # 선착순 k명 출력
-cnt = 0
-for sid, _ in sorted_students:
-    print(sid)
-    cnt += 1
-    if cnt == k:
-        break
+for i in range(min(k, len(sorted_students))):
+    print(sorted_students[i][0])
