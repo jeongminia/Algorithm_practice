@@ -1,36 +1,13 @@
-MAX = float('inf')
-
-def solution(temperature, t1, t2, a, b, onboard):
-    temperature += 10
-    t1 += 10
-    t2 += 10
-    length = len(onboard)
-    temp_dp = [[MAX]*51 for _ in range(length)]
-    temp_dp[0][temperature] = 0
-    
-    def check(idx, temp) :
-        return not (onboard[idx] and not t1 <= temp <= t2)
-    
-    for i in range(length-1) :
-        for j in range(51) :
-            if temp_dp[i][j] == MAX :
+def solution(T, T1, T2, a, b, onboard):
+    if T<T1:
+        T,T1,T2 = -T,-T2,-T1
+    N = len(onboard)
+    DP = [[1e9]*100 for i in range(N)]; DP[0][T]=0
+    for n in range(1,N):
+        for t in range(T1,T+1):
+            if onboard[n] and not T1<=t<=T2:
                 continue
-                
-            # off case :
-            if j < temperature :
-                temp = j+1
-            elif j > temperature :
-                temp = j-1
-            else :
-                temp = j
-                
-            if check(i+1, temp) :
-                temp_dp[i+1][temp] = min(temp_dp[i+1][temp], temp_dp[i][j])
-                
-            # on case :
-            for temp, cost in [(j+1, a), (j-1, a), (j, b)] :
-                if not check(i+1, temp) or not -1 < temp < 51 :
-                    continue    
-                temp_dp[i+1][temp] = min(temp_dp[i+1][temp], temp_dp[i][j] + cost)
-    
-    return min(temp_dp[-1])
+            DP[n][t] = min(DP[n-1][t-1],DP[n-1][t+1]+a,DP[n-1][t]+b)
+        if not onboard[n]:
+            DP[n][T] = min(DP[n][T],DP[n-1][T])
+    return min(DP[-1])
