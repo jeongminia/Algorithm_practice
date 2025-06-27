@@ -7,7 +7,7 @@ def solution(skill, skill_trees):
         check = deque(skill)
         
         for i in item:
-            if i in skill:
+            if i in check:
                 k = check.popleft()
                 #print(i, k)
                 if i != k:
