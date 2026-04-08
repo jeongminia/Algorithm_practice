@@ -1,3 +1,4 @@
+# 괄호가 열리면 쌓고 닫히면 지움
 def solution(s):
     stack = []
     
