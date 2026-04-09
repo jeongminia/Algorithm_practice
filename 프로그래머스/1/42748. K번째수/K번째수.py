@@ -1,6 +1,14 @@
 def solution(array, commands):
     answer = []
-    for arr in commands:
-        com_arr = sorted(array[arr[0]-1:arr[1]])
-        answer.append(com_arr[arr[2]-1])
+    
+    for lst in commands:
+        s = lst[0]-1
+        e = lst[1]
+        i = lst[2]
+        
+        ary = array[s:e]
+        ary.sort()
+        answer.append(ary[i-1])
+      #  print(ary)
+    
     return answer
