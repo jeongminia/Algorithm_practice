@@ -1,21 +1,21 @@
 from collections import deque
 
 def solution(priorities, location):
-    q = deque(priorities)
+    q = deque([(p, i) for i, p in enumerate(priorities)])
     answer = 0
+    
     while q:
-        m = max(q)
-        l = q.popleft()
-        location -= 1 
+        max_p = max(q, key=lambda x: x[0])[0]
         
-        if l != m: # 최댓값과 가장 앞에 위치한 프로세스가 일치하지 않는다면
-            q.append(l)
-            # 내 타겟이 맨 뒤로 이동한다면
-            if location < 0:
-                location = len(q) -1 
-        else: # 최댓값과 가장 앞에 위치한 프로세스가 일치한다면
+        current = q.popleft()
+        
+        # 4. 우선순위 비교
+        if current[0] < max_p:
+            # 더 높은 게 있다면 다시 뒤로 보내기
+            q.append(current)
+        else:
+            # 실행 확정
             answer += 1
-            if location < 0:
-                break
-        
-    return answer
+            # 만약 방금 실행한 게 내가 찾던 그 인덱스라면
+            if current[1] == location:
+                return answer
