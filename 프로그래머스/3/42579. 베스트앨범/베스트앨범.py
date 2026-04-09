@@ -12,10 +12,6 @@ def solution(genres, plays):
         genre_dict[genre] += play
         genre_song_list[genre].append((play, idx))
     
-    print(genre_dict)
-    print(genre_song_list)
-    
-    
     for genre in sorted(genre_dict, key=lambda x: -genre_dict[x]):
         best_songs = sorted(genre_song_list[genre], key=lambda x: (-x[0], x[1]))[:2]
         answer.extend([song[1] for song in best_songs])
