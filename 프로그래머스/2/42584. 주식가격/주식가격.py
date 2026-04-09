@@ -1,14 +1,16 @@
 def solution(prices):
-    n = len(prices)
-    answer = [0] * n 
-
-    for i in range(n):
-        time = 0  
-        for j in range(i + 1, n):  
-            time += 1
-            if prices[i] > prices[j]: 
-            #    print(prices[i], prices[j])
+    answer = []
+    
+    for i in range(len(prices)-1):
+        current = prices[i]
+        for j in range(i+1,len(prices)):
+            if (current > prices[j]):
+                m = j-i
                 break
-        answer[i] = time  
-
-    return answer
+            else:
+                m = len(prices)-i-1
+        
+        answer.append(m)
+    answer.append(0)
+    
+    return answer # 가격이 떨어지지 않은 기간은 몇 초인지
