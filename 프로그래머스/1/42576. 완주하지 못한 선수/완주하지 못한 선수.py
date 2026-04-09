@@ -1,17 +1,14 @@
 from collections import Counter
 
 def solution(participant, completion):
+    answer = ''
     
-    # 이름, 수 기준으로 딕셔너리 생성
-    part_cnt = dict(Counter(participant))
+    p_cnt = dict(Counter(participant))
+    c_cnt = dict(Counter(completion))
     
-    # 다 진행해서 수가 0이 아닌 것을 출력
-    for i in range(len(completion)):
-        # completion에 있을 때마다 수를 -1
-        a = completion.pop()
-        part_cnt[a] = part_cnt[a] - 1 
+    for p in c_cnt.keys():
+        p_cnt[p] -= c_cnt[p]
         
-    for key, value in part_cnt.items():
-        if value > 0:
-            answer = key
-    return answer
+  #  print(p_cnt)
+
+    return [k for k, v in p_cnt.items() if v == 1][0]
