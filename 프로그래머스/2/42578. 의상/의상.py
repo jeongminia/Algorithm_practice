@@ -1,8 +1,7 @@
 from collections import Counter
-from math import *
-
 def solution(clothes):
-    cloth_lst = dict(Counter([clothes[i][1] for i in range(len(clothes))])).values()
-    answer = prod([i+1 for i in cloth_lst])-1
-    return answer
-    
+    closet = Counter([item[1] for item in clothes])
+    answer = 1
+    for i in list(closet.values()):
+        answer*=(i+1)
+    return answer-1
