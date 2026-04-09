@@ -1,19 +1,23 @@
-from collections import defaultdict
-
 def solution(genres, plays):
+    dic1 = {} # 곡 정보
+    dic2 = {} # 장르 총 점수
+    for i, (g, p) in enumerate(zip(genres, plays)):
+        if g not in dic1:
+            dic1[g] = [(i, p)]
+        else:
+            dic1[g].append((i, p))
+
+        if g not in dic2:
+            dic2[g] = p
+        else:
+            dic2[g] += p
+ #   print(dic1)
+ #   print(dic2)
+    
     answer = []
-    
-    # 장르별 총 재생 횟수와 곡 리스트를 저장할 딕셔너리 초기화
-    genre_dict = defaultdict(int)
-    genre_song_list = defaultdict(list)
-    
-    # 장르별 총 재생 횟수와 곡 리스트 업데이트
-    for idx, (genre, play) in enumerate(zip(genres, plays)):
-        genre_dict[genre] += play
-        genre_song_list[genre].append((play, idx))
-    
-    for genre in sorted(genre_dict, key=lambda x: -genre_dict[x]):
-        best_songs = sorted(genre_song_list[genre], key=lambda x: (-x[0], x[1]))[:2]
-        answer.extend([song[1] for song in best_songs])
-    
+    for (k, v) in sorted(dic2.items(), key=lambda x:x[1], reverse=True): # 속한 노래가 많이 재생된 장르 먼저 수록
+     #   print(k, v)
+        for (i, p) in sorted(dic1[k], key=lambda x:x[1], reverse=True)[:2]: # 장르 내에서 많이 재생된 노래 / 고유번호가 낮은 노래 / 최대 두 곡
+            answer.append(i)
+
     return answer
