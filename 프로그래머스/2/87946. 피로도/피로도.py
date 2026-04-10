@@ -1,18 +1,20 @@
 from itertools import permutations
 
 def solution(k, dungeons):
-    cnt_lst = []
+    answer = 0
+    
     for case in permutations(dungeons):
-        stress = k
-        cnt = 0
-
-        for i in case:
-
-            if stress >= i[0]:
-                stress -= i[1]
-                cnt += 1
+   #     print(case)
+        
+        stress=k
+        md = 0
+        for j in case:
+            ms, ds = j[0], j[1]
+            if stress>=ms:
+                stress-=ds
+                md+=1
+                answer=max(md,answer)
             else:
                 break
-                
-        cnt_lst.append(cnt)
-    return max(cnt_lst)
+
+    return answer
