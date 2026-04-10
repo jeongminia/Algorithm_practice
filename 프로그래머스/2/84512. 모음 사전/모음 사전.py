@@ -1,11 +1,13 @@
-from itertools import permutations
+from itertools import product
 
 def solution(word):
-    answer = []   
-
+    lst = ['A', 'E', 'I', 'O', 'U']
+    dictionary = []
+    
     for i in range(1, 6):
-        for j in permutations(['A', 'E', 'I', 'O', 'U']*5, i):
-            answer.append("".join(j))
-    answer = sorted(list(set(answer)))
-   # print(answer)
-    return answer.index(word) + 1
+        for p in product(lst, repeat=i):
+            dictionary.append("".join(p))
+    
+    dictionary.sort()
+    
+    return dictionary.index(word) + 1
