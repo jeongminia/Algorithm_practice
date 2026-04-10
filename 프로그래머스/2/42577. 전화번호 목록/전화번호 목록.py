@@ -1,15 +1,15 @@
 def solution(phone_book):
-    answer = True
-    
+   # answer = True
     phone_book.sort()
-  #  print(phone_book)
+   # print(phone_book)
     
-    # while 제거하고 for 문으로 하나씩 이동해주기
-    current = phone_book[0]
-    for j in phone_book[1:]:
-        if current == j[:len(current)]:
-            answer = False
-            break
-        current = j
+    for i in range(len(phone_book)):
+        current = phone_book[i]
         
-    return answer
+        if i < len(phone_book)-1:
+            compare = phone_book[i+1]
+            if compare.startswith(current) == True:
+                return False
+                break
+
+    return True
