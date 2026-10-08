@@ -1,25 +1,25 @@
 def solution(progresses, speeds):
     answer = []
-    days = []
     
-    for i in range(len(progresses)):
-        if (100-progresses[i])%speeds[i] != 0:
-            k = (100-progresses[i])//speeds[i] + 1
+    days=[]
+    for i in range(len(speeds)):
+        x=100-progresses[i]
+        if x%speeds[i]!=0:
+            days.append(x//speeds[i]+1)
         else:
-            k = (100-progresses[i])//speeds[i]
-        days.append(k)
-#    print(days)
-  #  for j in range(1,len(days)):
-    for j in days:
-        if answer == []:
-            answer.append(1)
-            max_days = j
-        else:        
-            if j <= max_days:
-                answer[-1]+=1
-            else:
-                answer.append(1)
-                max_days = j
-       # print(j, max_days, answer)
+            days.append(x//speeds[i])
+   # print(answer) # 이게 바로 주식 급락이란 같은 원리인데..
     
-    return answer # 각 배포마다 몇 개의 기능이 배포되는지
+    answer=[]
+    base = days[0]
+    cnt = 0 
+    for x in days:
+        if x <= base:
+            cnt+=1
+        else: #           x > base
+            answer.append(cnt)
+            base=x
+            cnt=1
+            
+    answer.append(cnt)  
+    return answer
