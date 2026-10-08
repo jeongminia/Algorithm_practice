@@ -1,14 +1,15 @@
-# 괄호가 열리면 쌓고 닫히면 지움
 def solution(s):
-    stack = []
-    
-    for char in s:
-        if char == "(":
-            stack.append(char)
-        else:  
-            if stack: 
-                stack.pop()  
-            else: 
-                return False
-    
-    return len(stack) == 0
+    answer = True
+    stack=[]
+    for x in s:
+        if stack==[] and x==")":
+            return False
+        elif x=="(":
+            stack.append(x)
+        elif stack!=[] and x==")":
+            stack.pop(-1)
+            
+    if stack==[]:
+        return True
+    else:
+         return False
