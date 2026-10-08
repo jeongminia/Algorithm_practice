@@ -1,14 +1,10 @@
 def solution(array, commands):
     answer = []
     
-    for lst in commands:
-        s = lst[0]-1
-        e = lst[1]
-        i = lst[2]
-        
-        ary = array[s:e]
-        ary.sort()
-        answer.append(ary[i-1])
-      #  print(ary)
+    for c in commands:
+        arr=array[c[0]-1:c[1]]
+        print(arr)
+        arr.sort()
+        answer.append(arr[c[2]-1])
     
     return answer
