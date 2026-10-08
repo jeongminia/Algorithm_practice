@@ -1,12 +1,12 @@
 from collections import Counter
-
 def solution(nums):
-#    answer = 0
-    n = len(nums)//2
+
+    M=len(nums)//2
     
-   # print(Counter(nums).keys())
+    cnt=Counter(nums)
+    print(cnt, )
     
-    if len(Counter(nums).keys()) <= n:
-        return len(Counter(nums).keys())
+    if len(cnt) >= M:
+        return M
     else:
-        return n
+        return len(cnt)
