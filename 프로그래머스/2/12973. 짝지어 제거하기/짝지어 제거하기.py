@@ -1,28 +1,19 @@
 def solution(s):
-    s = list(s)
- #   print(s)
+    answer = -1
     stack = []
-    k = 0
     
-    while k != len(s):        
-        #print('s >>>> ', s)
-        
-        new = s[k]
-      #  print(new)
-        
-        if len(stack) > 0:
-            if (new == stack[-1]):
-                stack.pop()
+    for i in s:
+        if stack==[]:
+            stack.append(i)
+        else: # 빈 스택이 아니라면
+            if i == stack[-1]:
+                stack.pop(-1)
             else:
-                stack.append(new)
-        elif len(stack) == 0:
-            stack.append(new)
-            
-      #  print(stack)
+                stack.append(i)
+     #   print(stack)
     
-        k += 1
-        
-    if len(stack) == 0:
+    
+    if stack==[]:
         return 1
     else:
         return 0
