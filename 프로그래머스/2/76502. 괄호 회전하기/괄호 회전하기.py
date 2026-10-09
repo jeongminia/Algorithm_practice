@@ -1,38 +1,48 @@
-from collections import deque
+from collections import Counter
+
 def solution(s):
-    flag  = False   # 올바른 문자열 확인 플래그
-    count = 0      # 올바른 문자열 카운트
-    stack = []     # 올바른 문자열 확인을 위한 스택
-    queue = deque(s) # 문자열 큐로 변환
+    answer = 0
+    s_cnt = Counter(s)
+    # print(s_cnt)
+    if len(s_cnt)%2==1:
+        return 0
+    else:
+        if s_cnt["{"]==s_cnt["}"]:
+            pass
+        else:
+            return 0
+        if s_cnt["("]==s_cnt[")"]:
+            pass
+        else:
+            return 0
+        if s_cnt["["]==s_cnt["]"]:
+            pass
+        else:
+            return 0
     
-    # 문자열 큐 길이 만큼 for loop
-    for i in range(len(queue)):
-        # 괄호 문자열 하나씩 확인하는 for loop
-        for el in queue:
-            # 괄호 여는 문자열이면 스택에 저장
-            if el == '[' or el == '{' or el == '(':
-                stack.append(el)
-            # 괄호 닫는 문자열이면 스택 마지막 값과 확인
-            else:
-                # 스택에 값이 있고 괄호 문자열이 완성되면 제거 후 플래그 True
-                if stack:
-                    if stack[-1] == '[' and el == ']':
-                        stack.pop()
-                        flag = True
-                    elif stack[-1] == '{' and el == '}':
-                        stack.pop()
-                        flag = True
-                    elif stack[-1] == '(' and el == ')':
-                        stack.pop()
-                        flag = True
-        
-        # 올바른 문자열이 만들어졌고 스택이 비어있다면 카운트 1씩 증가
-        if flag and not stack: count += 1
-        
-        # 스택, 플래그 초기화, 문자열 회전
+    s = [j for j in s]
+    for x in range(len(s)):
+        print(x)
         stack = []
-        flag = False        
-        queue.append(queue.popleft())
         
-    # 올바른 문자열 카운트 반환
-    return count
+        for i in s:
+            if stack==[]:
+                stack.append(i)
+            else:
+                if stack[-1]=="[" and i=="]":
+                    stack.pop(-1)
+                elif stack[-1]=="{" and i=="}":
+                    stack.pop(-1)
+                elif stack[-1]=="(" and i==")":
+                    stack.pop(-1)
+                else:                # 짝이 안 맞으면 쌓기
+                    stack.append(i)
+        if stack==[]:
+            answer+=1
+        
+        move = s.pop(0)
+        s.append(move)
+        
+        
+    
+    return answer
