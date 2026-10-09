@@ -1,5 +1,13 @@
 def solution(k, m, score):
-    score = sorted(score, reverse=True)
-    answer = [min(score[i:i+m])*m for i in range(0, m*(len(score)//m), m)]
+    answer = 0
     
-    return sum(answer)
+    score.sort(reverse=True)
+ #   print(score)
+    
+ #   print(boxes) # 최대 박스 수
+    
+    for i in range(m - 1, len(score), m):   # m-1부터 m칸씩
+     #   print(score[i], i)
+        answer += score[i] * m
+    
+    return answer
